@@ -1,214 +1,86 @@
-// import { useState, useEffect } from "react";
+import React from "react";
+import "./App.css"
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
-// function App() {
-//   const [user, setUser] = useState(null);
-//   const [name, setName] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [isRegist, setisRegist] = useState(false);
-
-//   useEffect(() => {
-//     const storedUser = localStorage.getItem("user");
-//     if (storedUser) {
-//       setUser(JSON.parse(storedUser));
-//       setisRegist(true);
-//     }
-//   }, []);
-
-//   const Register = () => {
-//     if (!name || !email || !password) return alert("Барлық өрісті толтырыңыз");
-//     const newUser = { name, email, password };
-//     localStorage.setItem("user", JSON.stringify(newUser));
-//     setUser(newUser);
-//     setisRegist(true);
-//   };
-
-//   const Login = () => {
-//     const storedUser = JSON.parse(localStorage.getItem("user"));
-//     if (
-//       storedUser &&
-//       storedUser.email === email &&
-//       storedUser.password === password
-//     ) {
-//       setUser(storedUser);
-//       setisRegist(true);
-//     } else {
-//       alert("Қате email немесе пароль");
-//     }
-//   };
-
-//   const Logout = () => {
-//     setUser(null);
-//     setisRegist(false);
-//   };
-
-//   const DeleteAccount = () => {
-//     localStorage.removeItem("user");
-//     setUser(null);
-//     setisRegist(false);
-//   };
-
-//   const GuestLogin = () => {
-//     setUser({ name: "Guest" });
-//     setisRegist(true);
-//   };
-
-//   return (
-//     <div className="container">
-//       {!isRegist ? (
-//         <div>
-//           <h2>Тіркелу</h2>
-//           <input
-//             type="text"
-//             placeholder="Аты"
-//             value={name}
-//             onChange={(e) => setName(e.target.value)}
-//           />
-//           <input
-//             type="email"
-//             placeholder="Email"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//           />
-//           <input
-//             type="password"
-//             placeholder="Пароль"
-//             value={password}
-//             onChange={(e) => setPassword(e.target.value)}
-//           />
-//           <button onClick={Register}>Тіркелу</button>
-//           <h2>Кіру</h2>
-//           <input
-//             type="email"
-//             placeholder="Email"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//           />
-//           <input
-//             type="password"
-//             placeholder="Пароль"
-//             value={password}
-//             onChange={(e) => setPassword(e.target.value)}
-//           />
-//           <button onClick={Login}>Кіру</button>
-//           <button onClick={GuestLogin}>Қонақ ретінде кіру</button>
-//         </div>
-//       ) : (
-//         <div>
-//           <h2>Сәлем, {user.name}!</h2>
-//           <button onClick={Logout}>Шығу</button>
-//           <button onClick={DeleteAccount}>Аккаунтты жою</button>
-//         </div>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default App;
-
-import { useEffect, useState } from "react";
-import "./App.css";
-
-function App() {
-  const [user, setUser] = useState(localStorage.getItem("user") || "");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isRegist, setisRegist] = useState(!!localStorage.getItem("user"));
-
-  useEffect(() => {
-    if (isRegist && user !== "Guest") {
-      localStorage.setItem("user", user);
-    }
-  }, [user, isRegist]);
-
-  const Register = () => {
-    if (user && email && password) {
-      localStorage.setItem("user", user);
-      localStorage.setItem("email", email);
-      localStorage.setItem("password", password);
-      setisRegist(true);
-    } else {
-      alert("Full all input!");
-    }
-  };
-
-  const Login = () => {
-    const storedEmail = localStorage.getItem("email");
-    const storedPassword = localStorage.getItem("password");
-
-    if (email === storedEmail && password === storedPassword) {
-      setUser(localStorage.getItem("user"));
-      setisRegist(true);
-    } else {
-      alert("Undefined!");
-    }
-  };
-
-  const Logout = () => {
-    setisRegist(false);
-    setUser("");
-  };
-
-  const DeleteAccount = () => {
-    localStorage.removeItem("user");
-    localStorage.removeItem("email");
-    localStorage.removeItem("password");
-    setisRegist(false);
-    setUser("");
-  };
-
-  const GuestLogin = () => {
-    setisRegist(true);
-    setUser("Guest");
-  };
-
+const NavBar = () => {
   return (
-    <div className="container">
-      {!isRegist ? (
-        <div>
-          <h1>Registor</h1>
-          <input
-            type="text"
-            onChange={(e) => setUser(e.target.value)}
-            placeholder="Enter your name"
-          />
-          <input
-            type="email"
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-          />
-          <input
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter your password"
-          />
-          <button onClick={Register}>Registor</button>
-          <h1>Login</h1>
-          <input
-            type="email"
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-          />
-          <input
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-          />
-          <button onClick={Login}>Login</button>
-          <button onClick={GuestLogin}>Guest</button>
-        </div>
-      ) : (
-        <div>
-          <h1>Info</h1>
-          <h2> Welecome, {user}!</h2>
-          <button onClick={Logout}>left</button>
-          {user !== "Guest" && (
-            <button onClick={DeleteAccount}>Delate account</button>
-          )}
-        </div>
-      )}
+    <nav>
+      <Link to="/profile">My Profile</Link>
+      <Link to="/projects">My Projects</Link>
+      <Link to="/about">About Me</Link>
+    </nav>
+  );
+};
+
+const Profile = () => {
+  return (
+    <div>
+      <h2>My Profile</h2>
+      <p>Name: Aigan</p>
+      <p>Email: asdfgh@gmail.com</p>
+      <p>Academy: 172SCHOOL</p>
+      <Link to="/projects">
+        <button>Go to Projects</button>
+      </Link>
     </div>
   );
-}
+};
+
+const Projects = () => {
+  return (
+    <div>
+      <h2>My Projects</h2>
+      <ul>
+        <li>
+          <strong>Project 1:</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa recusandae rem sunt dicta ab, eveniet fuga ipsum laborum laudantium provident id mollitia. Omnis atque eaque sunt vitae, ipsum consectetur voluptatibus.
+        </li>
+        <li>
+          <strong>Project 2:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non iusto suscipit hic enim veritatis numquam aperiam, est id laboriosam nihil doloribus labore architecto officia eligendi tempora vero vel nam sunt.
+        </li>
+        <li>
+          <strong>Project 3:</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum dolorem nulla cumque consequuntur dolor quam quae pariatur sed eveniet nihil, quisquam amet nobis libero adipisci illum sint minus magni rerum?
+        </li>
+      </ul>
+      <Link to="/about">
+        <button>Go to About Me</button>
+      </Link>
+    </div>
+  );
+};
+
+const About = () => {
+  return (
+    <div>
+      <h2>About Me</h2>
+      <p>
+        I am a UI/UX design student passionate about creating intuitive user
+        experiences.
+      </p>
+      <Link to="/profile">
+        <button>Go to My Profile</button>
+      </Link>
+    </div>
+  );
+};
+
+const App = () => {
+  return (
+    <div className="container">
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
+};
 
 export default App;

@@ -7,17 +7,24 @@ body {
   align-items: center;
   margin: 100px;
 }
-
+nav{
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  justify-content: center;
+}
 .container {
-  background: rgba(185, 185, 185, 0.256);
+  background: rgba(185, 185, 185, 0.695);
   padding: 55px;
   border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);  
   width: 700px;
   text-align: center;
-  display: flex;
   gap: 50px;
+}
+li{
+  margin: 10px;
 }
 .containInside{
   display: flex;
