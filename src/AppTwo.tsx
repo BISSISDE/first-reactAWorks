@@ -47,14 +47,14 @@ const Search = ({ onSearch }) => {
       );
       if (response.data.Response === "False") {
         onSearch([]);
-        setError("Фильм табылмады!");
+        setError("Tabilmady!");
       } else {
         onSearch(response.data.Search);
         setError("");
       }
     } catch (error) {
       console.log("Error:", error);
-      setError("Фильмдерді іздеу кезінде қате пайда болды!");
+      setError("Error with pai!");
     } finally {
       setIsLoading(false);
     }
@@ -127,7 +127,7 @@ const MovieDetail = () => {
         );
         setMovie(response.data);
       } catch (error) {
-        console.log("Ошибка загрузки фильма:", error);
+        console.log("Eror:", error);
       } finally {
         setLoading(false);
       }
@@ -135,7 +135,7 @@ const MovieDetail = () => {
     fetchMovie();
   }, [id]);
 
-  if (loading) return <p className="loading">Загрузка...</p>;
+  if (loading) return <p className="loading">Loading...</p>;
 
   return (
     <div className="movie-detail">
@@ -151,7 +151,7 @@ const MovieDetail = () => {
       <p>
         <strong>Жыл:</strong> {movie.Year}
       </p>
-      <Link to="/">Артқа</Link>
+      <Link to="/">Artka</Link>
     </div>
   );
 };
