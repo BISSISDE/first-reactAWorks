@@ -311,7 +311,14 @@
 
 
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, Link, useParams, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link,
+  useParams,
+  useNavigate,
+} from "react-router-dom";
 import "./App.css";
 
 const fetchProducts = async () => {
@@ -332,9 +339,11 @@ function Home() {
   let filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(search.toLowerCase())
   );
-  
+
   if (category) {
-    filteredProducts = filteredProducts.filter(product => product.category === category);
+    filteredProducts = filteredProducts.filter(
+      (product) => product.category === category
+    );
   }
 
   if (sortOrder === "asc") {
@@ -346,22 +355,29 @@ function Home() {
   return (
     <div className="container">
       <div className="controls">
-        <input 
-          type="text" 
-          placeholder="Іздеу..." 
-          className="input" 
-          value={search} 
-          onChange={(e) => setSearch(e.target.value)} 
+        <input
+          type="text"
+          placeholder="Іздеу..."
+          className="input"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
-        <select onChange={(e) => setCategory(e.target.value)} className="select">
+        <select
+          onChange={(e) => setCategory(e.target.value)}
+          className="select"
+        >
           <option value="">Барлық категориялар</option>
           <option value="electronics">Electronics</option>
           <option value="jewelery">Jewelery</option>
           <option value="men's clothing">Men's Clothing</option>
           <option value="women's clothing">Women's Clothing</option>
         </select>
-        <button className="button" onClick={() => setSortOrder("asc")}>Баға: арзан → қымбат</button>
-        <button className="button" onClick={() => setSortOrder("desc")}>Баға: қымбат → арзан</button>
+        <button className="button" onClick={() => setSortOrder("asc")}>
+          Баға: арзан → қымбат
+        </button>
+        <button className="button" onClick={() => setSortOrder("desc")}>
+          Баға: қымбат → арзан
+        </button>
       </div>
       <div className="grid">
         {filteredProducts.map((product) => (
@@ -381,7 +397,7 @@ function ProductDetail() {
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
 
-  useEffect(() => { 
+  useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
       .then((res) => res.json())
       .then(setProduct);
@@ -391,7 +407,9 @@ function ProductDetail() {
 
   return (
     <div className="container">
-      <button onClick={() => navigate("/")} className="back-button">Back to Home</button>
+      <button onClick={() => navigate("/")} className="back-button">
+        Back to Home
+      </button>
       <div className="product-detail">
         <img src={product.image} alt={product.title} className="image-large" />
         <h1 className="title-large">{product.title}</h1>

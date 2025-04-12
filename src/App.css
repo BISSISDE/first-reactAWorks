@@ -1,362 +1,142 @@
-@import url('https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&family=Lilita+One&family=Lobster&family=Oleo+Script:wght@400;700&family=Orelega+One&family=Pacifico&family=Permanent+Marker&family=Rubik+Dirt&family=Rubik+Scribble&family=Rubik+Spray+Paint&family=Triodion&display=swap');
 body {
   margin: 0;
-  padding: 0;
-  font-family: "Permanent Marker", cursive;
-  background: url(https://4kwallpapers.com/images/wallpapers/dark-background-abstract-background-network-3d-background-3840x2160-8324.png) center /cover no-repeat;
-  color: #f5f6fa; 
-  height: 200vh;
-
-}
-.navbar {
-  background: url(https://4kwallpapers.com/images/wallpapers/dark-background-abstract-background-network-3d-background-3840x2160-8324.png) center /cover no-repeat;
-  color: #f5f6fa;
-  backdrop-filter: blur(5px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  
+  font-family: 'Montserrat', sans-serif;
+  background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding-bottom: 50px;
 }
 
-.nav-logo {
-  font-size: 2.05rem;
-  font-weight: bold;
-  letter-spacing: 1px;
+h1 {
+  text-align: center;
+  font-size: 42px;
+  margin-top: 40px;
+  color: #00eaff;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px #00eaff;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 1.5rem;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #5e60ce;
-  font-weight: 500;
-  transition: color 0.3s ease;
-  font-size: 1.4rem;
-}
-
-.nav-links a:hover {
-  color: #3498db;
-}
-
-.logout-btn {
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  width: 100px;
-  padding: 0.5rem 1.5rem;
-  border-radius: 15px;
-  font-weight: 900;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  border: 1px white solid;
-}
-
-.logout-btn:hover {
-color: black;
-border: 1px rgb(0, 0, 0) solid;
-}
-
-.login-container {
-  width: 720px;
-  height: 600px;
-  margin: 5rem auto;
-  background: #ffffff;
-  padding: 3rem;
-  padding-left: 8rem;
-  border-radius: 25px;
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
-  border: 2px solid #e1e8ed;
-  font-family: "Permanent Marker", cursive;
-}
-
-.login-container h2 {
-  padding-left: 14rem;
-  margin-bottom: 1.5rem;
-  color: #5e60ce;
-  font-family: "Lilita One", sans-serif;
-  font-size: 2.5rem;
-
-}
-
-.form-group {
-  margin-bottom: 1.3rem;
-}
-
-label {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+input[type="text"],
+input[type="date"] {
   display: block;
-  color: #3c3c3c;
-  font-family: "Permanent Marker", cursive;
-  font-size: 2.1rem;
-}
-
-input {
-  width: 80%;
-  padding: 0.9rem;
-  height: 40px;
-  color: #5e60ce;
-  border: 2px solid #dcdde1;
-  border-radius: 12px;
-  outline: none;
-  background-color: #f9f9f9;
-  font-family: "Lilita One", sans-serif;
-  font-size: 1.5rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  margin: 20px auto;
+  padding: 15px 25px;
+  width: 85%;
+  max-width: 500px;
+  border-radius: 30px;
+  border: 1px solid rgba(0, 234, 255, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 16px;
+  box-shadow: 0 0 15px rgba(0, 234, 255, 0.15);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 input:focus {
-  border-color: #5e60ce;
-  box-shadow: 0 0 5px rgba(94, 96, 206, 0.3);
+  outline: none;
+  border-color: #00eaff;
+  box-shadow: 0 0 20px rgba(0, 234, 255, 0.4);
 }
 
-.error-text {
-  color: #d63031;
-  font-size: 1rem;
-  margin-top: 0.3rem;
-}
-
-.login-btn {
-  width: 80%;
-  background: linear-gradient(to right, #5e60ce, #64dfdf);
-  color: white;
+button {
+  display: inline-block;
+  background: linear-gradient(135deg, #00eaff, #4facfe);
+  color: #000;
   border: none;
-  padding: 1rem;
-  height: 70px;
-  border-radius: 30px;
-  font-weight: 900;
-  font-size: 3.05rem;
+  padding: 12px 30px;
+  font-size: 16px;
   font-weight: bold;
-  cursor: pointer;
-  margin-top: 2rem;
-  transition: background 0.3s ease, transform 0.2s ease;
-font-family: "Lilita One", sans-serif;
-}
-
-.login-btn:hover {
-  background: linear-gradient(to right, #64dfdf, #5e60ce);
-  transform: scale(1.02);
-}
-.login-btn {
-  width: 80%;
-  padding: 1rem 1.5rem;
-  background: linear-gradient(135deg, #5e60ce, #845ef7);
-  color: #ffffff;
-  font-size: 1.5em;
-  font-weight: 900;
-  border: none;
-  border-radius: 50px;
+  border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(94, 96, 206, 0.4);
-  font-family: 'Segoe UI', sans-serif;
-  letter-spacing: 0.5px;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
+  box-shadow: 0 0 15px rgba(0, 234, 255, 0.3);
+  margin-top: 10px;
 }
 
-.login-btn::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent 60%);
-  transform: rotate(25deg);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 0;
-}
-
-.login-btn:hover::before {
-  opacity: 1;
-}
-
-.login-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(94, 96, 206, 0.5);
-}
-
-.login-btn:active {
-  transform: scale(0.98);
-}
-
-.home {
-  text-align: center;
-  margin-top: 4rem;
-}
-
-.home h1 {
-  font-size: 3.5rem;
-  color: #5e60ce; 
-}
-
-.book-gallery {
-  padding: 2rem;
-  text-align: center;
-}
-
-.book-gallery h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color:  #5e60ce; 
-}
-
-.books-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 1.5rem;
-  padding: 1rem;
-}
-
-.book-card {
-  background: #444;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  height: 450px;
-}
-
-.book-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-}
-
-.book-image-container {
-  position: relative;
-}
-
-.book-image {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.book-card:hover .book-image {
+button:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 234, 255, 0.6);
 }
 
-.book-info {
-  padding: 1.2rem;
-  background-color: #333;
-  border-radius: 0 0 20px 20px;
+.flight-card {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  border-radius: 25px;
+  padding: 30px;
+  margin: 30px auto;
+  max-width: 750px;
+  box-shadow: 0 0 25px rgba(0, 234, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
   position: relative;
 }
 
-.book-info h3 {
-  font-size: 1.1rem;
-  color: #f5f6fa;
-  margin-bottom: 0.8rem;
-  transition: color 0.3s ease;
+.flight-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(0, 234, 255, 0.3);
 }
 
-.book-info:hover h3 {
-  color:  #5e60ce; 
+.flight-card h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+  color: #ffffff;
 }
 
-.author {
-  color: #aaa;
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
+.flight-card p,
+.flight-card span {
+  font-size: 17px;
+  color: #cbefff;
+  margin: 8px 0;
 }
 
-.price {
-  font-weight: bold;
-  color: #2ecc71; 
-  font-size: 1.1rem;
-}
-
-.overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(52, 152, 219, 0.8);
-  color: white;
-  padding: 0.8rem 1.2rem;
-  border-radius: 30px;
-  font-weight: 500;
-  text-transform: uppercase;
-  transition: background-color 0.3s ease;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.book-card:hover .overlay {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.view-details-btn {
-  background-color: #3498db;
-  color: white;
-  padding: 0.5rem 1.2rem;
-  border-radius: 25px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: background-color 0.3s ease;
-  display: inline-block;
-}
-
-.view-details-btn:hover {
-  background-color: #2980b9; 
-}
-
-.book-details {
-  max-width: 900px;
-  margin: 3rem auto;
-  background: #333; 
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-}
-
-.details-container {
+.flight-card div {
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+  justify-content: space-between;
   align-items: center;
 }
 
-.detail-image {
-  max-width: 300px;
-  border-radius: 12px;
-  object-fit: cover;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+.booking-form {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 35px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 30px rgba(0, 234, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  animation: fadeInUp 1s ease-in-out;
 }
 
-.info {
-  flex: 1;
-  font-size: 1rem;
-  line-height: 1.7;
+.booking-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #bffcff;
+  font-size: 15px;
+  letter-spacing: 0.5px;
 }
 
-.back-btn {
-  margin-top: 1.5rem;
-  display: inline-block;
-  color: #3498db; 
-  text-decoration: none;
-  font-weight: bold;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.loading,
-.not-found {
-  text-align: center;
-  font-size: 1.3rem;
-  color: #777;
-  padding: 2rem;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
