@@ -1,142 +1,43 @@
-body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
-  color: #ffffff;
-  min-height: 100vh;
-  overflow-x: hidden;
-  padding-bottom: 50px;
-}
-
-h1 {
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 50px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
   text-align: center;
-  font-size: 42px;
-  margin-top: 40px;
-  color: #00eaff;
-  letter-spacing: 2px;
-  text-shadow: 0 0 20px #00eaff;
-  animation: fadeIn 1.5s ease-in-out;
+  font-family: sans-serif;
 }
 
-input[type="text"],
-input[type="date"] {
-  display: block;
-  margin: 20px auto;
-  padding: 15px 25px;
-  width: 85%;
-  max-width: 500px;
-  border-radius: 30px;
-  border: 1px solid rgba(0, 234, 255, 0.4);
-  background: rgba(255, 255, 255, 0.05);
-  color: #ffffff;
+h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.input {
+  padding: 8px;
+  width: 100%;
+  margin-bottom: 12px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
   font-size: 16px;
-  box-shadow: 0 0 15px rgba(0, 234, 255, 0.15);
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
 }
 
-input:focus {
-  outline: none;
-  border-color: #00eaff;
-  box-shadow: 0 0 20px rgba(0, 234, 255, 0.4);
-}
-
-button {
-  display: inline-block;
-  background: linear-gradient(135deg, #00eaff, #4facfe);
-  color: #000;
+.button {
+  padding: 8px 16px;
+  font-size: 16px;
   border: none;
-  padding: 12px 30px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 30px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(0, 234, 255, 0.3);
-  margin-top: 10px;
 }
 
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(0, 234, 255, 0.6);
+.button:disabled {
+  background-color: #7aa7de;
+  cursor: not-allowed;
 }
 
-.flight-card {
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(12px);
-  border-radius: 25px;
-  padding: 30px;
-  margin: 30px auto;
-  max-width: 750px;
-  box-shadow: 0 0 25px rgba(0, 234, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.flight-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 40px rgba(0, 234, 255, 0.3);
-}
-
-.flight-card h2 {
-  font-size: 26px;
-  margin-bottom: 10px;
-  color: #ffffff;
-}
-
-.flight-card p,
-.flight-card span {
-  font-size: 17px;
-  color: #cbefff;
-  margin: 8px 0;
-}
-
-.flight-card div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.booking-form {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 35px;
-  border-radius: 25px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 0 30px rgba(0, 234, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  animation: fadeInUp 1s ease-in-out;
-}
-
-.booking-form label {
-  display: block;
-  margin-bottom: 10px;
-  font-weight: 500;
-  color: #bffcff;
-  font-size: 15px;
-  letter-spacing: 0.5px;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.result {
+  margin-top: 15px;
+  font-size: 16px;
 }
